@@ -4,6 +4,7 @@ require "dbBroker.php";
 require "model/prijava.php";
 require "handler/delete.php";
 require "handler/add.php";
+require "handler/update.php";
 
 session_start();
 
@@ -151,7 +152,7 @@ $result = Prijava::getAll($conn);
                     </div>
                     <div class="modal-body">
                         <form action="#" method="post" id="izmeniForm">
-                            <input id="id_predmeta" type="hidden" name="id_predmeta" readonly>
+                            <input id="id_predmeta" type="disabled" name="id_predmeta" readonly>
                             <div class="form-group">
                                 <label>Predmet</label>
                                 <input id="predmet" type="text" name="predmet" class="form-control" required>
