@@ -46,9 +46,17 @@ class Prijava
     }
 
     //UPDATE
+    // public function updatePrijava(Prijava $p, mysqli $conn)
+    // {
+    //     $q = "UPDATE prijave SET predmet='$p->predmet', katedra='$p->katedra', sala='$p->sala', datum='$p->datum' WHERE id=$p->id";
+    //     return $conn->query($q);
+    // }
+
     public function updatePrijava(Prijava $p, mysqli $conn)
     {
-        $q = "UPDATE prijave SET predmet='$p->predmet', katedra='$p->katedra', sala='$p->sala', datum='$p->datum' WHERE id=$p->id";
-        return $conn->query($q);
+        $q = "UPDATE prijave SET predmet=?, katedra=?, sala=?, datum=? WHERE id=?";
+        $s = $conn->prepare($q);
+        $s->bind_param("ssssi", $p->predmet, $p->katedra, $p->sala, $p->datum, $p->id);
+        return $s->execute();
     }
 }
