@@ -1,8 +1,8 @@
 <?php
 
-require "dbBroker.php";
+require_once "dbBroker.php";
 require "model/prijava.php";
-require "handler/delete.php";
+// require "handler/delete.php";
 require "handler/add.php";
 require "handler/update.php";
 
@@ -180,7 +180,6 @@ $result = Prijava::getAll($conn);
     <!-- Bootstrap and jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <script>
         // Omogućavanje dugmadi kada je selektovan radio button
         $('input[name="id_predmeta"]').on('change', function() {
@@ -203,6 +202,7 @@ $result = Prijava::getAll($conn);
             $('#datum').val(datum);
         });
     </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
