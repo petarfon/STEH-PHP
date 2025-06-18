@@ -59,4 +59,11 @@ class Prijava
         $s->bind_param("ssssi", $p->predmet, $p->katedra, $p->sala, $p->datum, $p->id);
         return $s->execute();
     }
+
+    public static function getLastId(mysqli $conn)
+    {
+        $q = "SELECT * FROM prijave ORDER BY id DESC LIMIT 1";
+        $result = $conn->query($q);
+        return $result->fetch_object()->id;
+    }
 }

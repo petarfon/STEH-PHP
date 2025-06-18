@@ -3,7 +3,7 @@
 require_once "dbBroker.php";
 require "model/prijava.php";
 // require "handler/delete.php";
-require "handler/add.php";
+// require "handler/add.php";
 require "handler/update.php";
 
 session_start();
